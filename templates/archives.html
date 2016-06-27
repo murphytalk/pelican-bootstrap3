@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Archives - {{ SITENAME }}{% endblock %}
+{% block breadcrumbs %}
+    {% if DISPLAY_BREADCRUMBS %}
+        <ol class="breadcrumb">
+            <li><a href="{{ SITEURL }}" title="{{ SITENAME }}"><i class="fa fa-home fa-lg"></i></a></li>
+            <li class="active">Archives</li>
+        </ol>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+   <section id="content">
+        <h1>Archives for {{ SITENAME }}</h1>
+        <div id="archives">
+                {# Data type of the object in dates is Content #}
+                {% for article in dates %}
+                    {%  if (not newest_year) or newest_year == article.date.year %}
+                    <p>
+                        <span class="categories-timestamp"><time
+                                datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></span>
+                        <a href="{{ SITEURL }}/{{ article.url }}">
+                            {{ article.title }}{% if article.subtitle %} - {{ article.subtitle }}{% endif %}</a>
+                    </p>
+                    {% endif %}
+                    {% if not newest_year %}
+                        {% set newest_year = article.date.year %}
+                    {% endif %}
+                {% endfor %}
+                {% for year, date_year in dates|groupby( 'date.year' )|sort(reverse=True) %}
+                    <p>
+                        <a href="{{ SITEURL }}/posts/{{ year }}/index.html">All posts in {{ year }}</a>
+                    </p>
+                {% endfor %}
+        </div>
+    </section>
+{% endblock %}
