@@ -203,5 +203,12 @@
 {% include 'includes/piwik.html' %}
 
 {% block scripts %}{% endblock %}
+    <script>
+     $(document).ready(function(){
+         //override the ipyhon notebook code area background color
+         $("div.input_area").css("background-color", "#333");
+         $("div.input_area > div.highlight").css("background-color", "#333");
+     });
+    </script>
 </body>
 </html>
