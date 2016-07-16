@@ -60,23 +60,25 @@
             {% include 'includes/sidebar_tags.html' %}
         {% endif %}
 
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4><i class="fa fa-home fa-lg"></i><span
-                        class="icon-label">My Tweets</span></h4>
-            </div>
-            <div class="panel-body">
-                <a class="twitter-timeline"
-            {% if DARK_THEME %}
-                   data-theme="dark"
-            {% endif %}
-                   href="https://twitter.com/murphytalk">Tweets by murphytalk</a>
-                <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
-        </div>
-
         {% if LINKS %}
             {% include 'includes/links.html' %}
+        {% endif %}
+
+        {% if SOCIAL %}
+	        <div class="panel panel-default">
+	            <div class="panel-heading">
+	                <h4><i class="fa fa-home fa-lg"></i><span
+	                        class="icon-label">My Tweets</span></h4>
+	            </div>
+	            <div class="panel-body">
+	                <a class="twitter-timeline"
+	            {% if DARK_THEME %}
+	                   data-theme="dark"
+	            {% endif %}
+	                   href="https://twitter.com/murphytalk">Tweets by murphytalk</a>
+	                <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+	            </div>
+	        </div>
         {% endif %}
 
         {% if GITHUB_USER %}
