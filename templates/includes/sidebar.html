@@ -34,10 +34,13 @@
                         {% for article in articles[:RECENT_POST_COUNT] %}
                             <li class="list-group-item">
                                 <a href="{{ SITEURL }}/{{ article.url }}">
-                                    {{ article.title }}
+                                    {{ article.date.strftime("%Y-%m-%d")}}&nbsp;&nbsp;&nbsp;{{ article.title }}
                                 </a>
                             </li>
                         {% endfor %}
+                        <li class="list-group-item">
+                            <a href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a>
+                        </li>
                     </ul>
                 </div>
             </div>
