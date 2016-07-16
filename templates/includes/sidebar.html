@@ -10,7 +10,16 @@
 
         {% if SOCIAL %}
             {% include 'includes/social.html' %}
-       {% endif %}
+        {% endif %}
+
+        {% if DISPLAY_TAGS_ON_SIDEBAR %}
+            {% include 'includes/sidebar_tags.html' %}
+        {% endif %}
+
+        {% if LINKS %}
+           {% include 'includes/links.html' %}
+        {% endif %}
+
 
         {% if DISPLAY_RECENT_POSTS_ON_SIDEBAR %}
             {% if RECENT_POST_COUNT is not defined %}
@@ -55,16 +64,7 @@
         {% endif %}
 
 
-
-        {% if DISPLAY_TAGS_ON_SIDEBAR %}
-            {% include 'includes/sidebar_tags.html' %}
-        {% endif %}
-
-        {% if LINKS %}
-            {% include 'includes/links.html' %}
-        {% endif %}
-
-        {% if SOCIAL %}
+        {% if MY_TWITTER_FEED %}
 	        <div class="panel panel-default">
 	            <div class="panel-heading">
 	                <h4><i class="fa fa-home fa-lg"></i><span
